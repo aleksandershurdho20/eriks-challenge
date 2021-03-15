@@ -9,13 +9,22 @@ export default function Products() {
       setProducts(res.data.products);
     });
   }, []);
+  const getHighlighted = (field) => {
+    debugger;
+    console.log(field, "field");
+    return !products.every((product) => product[field] === products[0][field]);
+  };
   return (
     <>
       <div className="container mt-5">
         <div className="row w-100">
           {products.length > 0
             ? products.map((product, index) => (
-                <ProductCards product={product} data={index} />
+                <ProductCards
+                  product={product}
+                  data={index}
+                  getHighlighted={getHighlighted}
+                />
               ))
             : "No Products..."}
         </div>

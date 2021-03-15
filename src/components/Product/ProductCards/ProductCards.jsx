@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./ProductCards.scss";
-export default function ProductCards({ product, data }) {
+export default function ProductCards({ product, data, getHighlighted }) {
   const [toogle, setToogle] = useState({});
   const hideProduct = (index) => {
     setToogle({ ...toogle, [index]: !toogle[index] });
   };
+  const diameter = product["Inwendige diameter"];
+
   return (
     <div className="col-md-3" key={data}>
       <button
@@ -12,7 +14,7 @@ export default function ProductCards({ product, data }) {
         className="btn btn-danger btn-block"
         onClick={() => hideProduct(data)}
       >
-        asas
+        {`Toogle Product ${data}`}
       </button>
       {!!toogle[data] && (
         <div className="card">
@@ -30,7 +32,15 @@ export default function ProductCards({ product, data }) {
 
               <div className="d-flex flex-column">
                 <small className="text-muted mb-2">Diameter</small>
-                <span>{product["Inwendige diameter"]}</span>
+                <span
+                  style={{
+                    backgroundColor: getHighlighted(diameter)
+                      ? "grey"
+                      : "white",
+                  }}
+                >
+                  {diameter}
+                </span>
               </div>
             </div>{" "}
             <div className="d-flex flex-row justify-content-between p-3 mid">
