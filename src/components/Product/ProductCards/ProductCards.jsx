@@ -7,7 +7,14 @@ export default function ProductCards({ product, data }) {
   };
   return (
     <div className="col-md-3" key={data}>
-      {!toogle[data] && (
+      <button
+        type="button"
+        className="btn btn-danger btn-block"
+        onClick={() => hideProduct(data)}
+      >
+        asas
+      </button>
+      {!!toogle[data] && (
         <div className="card">
           {" "}
           <img src={product.productImage} className="card-img-top w-100" />
@@ -51,15 +58,6 @@ export default function ProductCards({ product, data }) {
                 <small className="text-muted mb-2">s</small>
                 <span>{product["Inwendige diameter"]}</span>
               </div>
-            </div>{" "}
-            <div className="mx-3 mt-3 mb-2">
-              <button
-                type="button"
-                className="btn btn-danger btn-block"
-                onClick={() => hideProduct(data)}
-              >
-                asas
-              </button>
             </div>{" "}
           </div>
         </div>
