@@ -3,15 +3,12 @@ import * as API from "utils/api";
 import ProductCards from "./ProductCards";
 export default function Products() {
   const [products, setProducts] = useState([]);
-  console.log(products, "products");
   useEffect(() => {
     API.getProductData().then((res) => {
       setProducts(res.data.products);
     });
   }, []);
   const getHighlighted = (field) => {
-    debugger;
-    console.log(field, "field");
     return !products.every((product) => product[field] === products[0][field]);
   };
   return (
@@ -23,6 +20,7 @@ export default function Products() {
                 <ProductCards
                   product={product}
                   data={index}
+                  key={index}
                   getHighlighted={getHighlighted}
                 />
               ))
