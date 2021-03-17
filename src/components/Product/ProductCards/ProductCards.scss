@@ -1,4 +1,4 @@
-
+    $primary_color : #2c2727;
     .card {
         width: 250px;
         border-radius: 10px;
@@ -13,6 +13,35 @@
     }
         
 
-    
+    .toogle-btn{
+        background: $primary_color;
+        border: $primary_color;
+        color: #FFF;
+        &:hover{
+            background: $primary_color;
+        border: $primary_color; 
+        color: #FFF;
+
+        }
+        &:focus{
+            background: $primary_color;
+            border: $primary_color;
+            outline: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+            color: #FFF;
+
+        }
+        &:active{
+            outline: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+            color: #FFF;
+
+
+        }
+    }
   
    

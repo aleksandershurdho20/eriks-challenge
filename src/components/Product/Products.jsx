@@ -8,8 +8,12 @@ export default function Products() {
       setProducts(res.data.products);
     });
   }, []);
+
   const getHighlighted = (field) => {
-    return !products.every((product) => product[field] === products[0][field]);
+    const isHighlighted = products.every(
+      (product) => product[field] === products[0][field]
+    );
+    return isHighlighted;
   };
   return (
     <>
